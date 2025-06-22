@@ -56,21 +56,32 @@ This dashboard summarizes key insights using the visuals shown below. Each chart
 
 ### 1. Total Rides by User Type
 
+<img src="images/Total Rides by User Type.png" width="600"/>
+
 **Insight:** Annual members account for the majority of total rides, showing stronger long-term engagement. Casual riders ride less frequently, which highlights the business potential of converting them into members.
 
 ### 2. Average Ride Duration by Weekday and User Type
+
+<img src="images/Avg Duration by Day and User Type.png" width="600"/>
 
 **Insight:** Casual riders consistently take longer trips, especially on weekends. Members ride shorter distances, mostly during weekdays. This indicates leisure usage by casual riders and commuting behavior by members.
 
 ### 3. Hourly Usage Pattern by User Type
 
+<img src="images/Hourly Usage by User Type.png" width="800"/>
+
 **Insight:** Members ride most during peak commute hours (8 AM and 5–6 PM), while casual riders peak around late mornings to afternoons, aligning with leisure-time activities. This supports weekday vs. weekend marketing strategies.
 
 ### 4. Bike Type Preference by User Type
 
+<img src="images/Avg Duration by Day and User Type.png" width="600"/>
+
 **Insight:** Both casual riders and members heavily prefer classic bikes, but casual users show slightly more variety in choosing electric bikes. This helps plan future equipment distribution.
 
 ### 5. Top Start and End Stations for Casual Riders
+
+<img src="images/Top Start Stations – Casual Riders.png" width="700"/>
+<img src="images/Top End Stations – Casual Riders.png" width="700"/>
 
 **Insight:** The most frequent start and end stations are near popular tourist spots like Navy Pier and Lakefront Trail. These locations are ideal for promoting membership plans through digital campaigns.
 
