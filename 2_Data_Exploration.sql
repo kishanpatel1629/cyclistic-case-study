@@ -1,6 +1,23 @@
--- ==============================
--- Cyclistic Data Exploration SQL
--- ==============================
+-- =====================================================
+-- Step 2: Add calculated columns and explore the data
+-- Run after 1_Data_Combining.sql
+-- =====================================================
+
+-- 2A. Add ride length (minutes) and day of week
+-- GO is needed so SQL Server creates the new columns before the UPDATE uses them
+
+ALTER TABLE tripdata_all_2023
+    ADD ride_length_min INT,
+        day_of_week VARCHAR(20);
+GO
+
+UPDATE tripdata_all_2023
+SET
+    ride_length_min = DATEDIFF(MINUTE, started_at, ended_at),
+    day_of_week = DATENAME(WEEKDAY, started_at);
+GO
+
+-- 2B. Exploration queries
 
 -- 1. Check number of NULLs in each column
 SELECT 

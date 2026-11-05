@@ -1,5 +1,9 @@
--- ANALYSIS PHASE: Answering Cyclistic Business Questions using SQL
--- Based on cleaned data in `tripdata_final` table created in the data cleaning phase
+-- =====================================================
+-- Step 4: Answer the business questions
+-- Uses the clean table tripdata_final_2023 from 3_Data_Cleaning.sql
+-- =====================================================
+-- Note: ride_length_min is a whole number, so averages are cast to DECIMAL
+-- to keep the decimals (for example 23.04 instead of 23)
 
 -- Question 1: How do annual members and casual riders use Cyclistic bikes differently?
 -- Breakdown by average ride length, ride counts, and usage patterns by weekday and ride type
@@ -7,7 +11,7 @@
 -- 1A. Compare average ride length (in minutes) by user type
 SELECT 
     member_casual,
-    AVG(ride_length_min) AS average_ride_duration_min
+    CAST(AVG(CAST(ride_length_min AS DECIMAL(10,2))) AS DECIMAL(10,2)) AS average_ride_duration_min
 FROM tripdata_final_2023
 GROUP BY member_casual;
 
@@ -41,7 +45,7 @@ ORDER BY
 SELECT 
     member_casual,
     day_of_week,
-    AVG(ride_length_min) AS avg_ride_length
+    CAST(AVG(CAST(ride_length_min AS DECIMAL(10,2))) AS DECIMAL(10,2)) AS avg_ride_length
 FROM tripdata_final_2023
 GROUP BY member_casual, day_of_week
 ORDER BY 
@@ -119,7 +123,7 @@ SELECT
         WHEN day_of_week IN ('Saturday', 'Sunday') THEN 'Weekend'
         ELSE 'Weekday'
     END AS ride_day_type,
-    AVG(ride_length_min) AS avg_ride_length
+    CAST(AVG(CAST(ride_length_min AS DECIMAL(10,2))) AS DECIMAL(10,2)) AS avg_ride_length
 FROM tripdata_final_2023
 WHERE member_casual = 'casual'
 GROUP BY 
@@ -142,7 +146,7 @@ OFFSET 0 ROWS FETCH NEXT 10 ROWS ONLY;
 
 
 -- Question 3: How can Cyclistic use digital media to influence casual riders to become members?
--- While SQL alone can’t answer marketing strategies, we can highlight user behavior to inform campaigns
+-- While SQL alone cannot answer marketing strategies, we can highlight user behavior to inform campaigns
 
 -- 3A. Identify top 10 most popular end stations for casual riders
 SELECT 
